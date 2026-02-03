@@ -1,0 +1,281 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taco Tuesyay</title>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root {
+      --gold: #d4af37;
+      --dark-yellow: #cfa300;
+      --black: #000;
+      --white: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--black);
+      color: var(--white);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    img, video {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 24px;
+    }
+
+    /* Logo */
+    .logo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .logo img {
+      width: 140px;
+    }
+
+    /* Title */
+    .title {
+      text-align: center;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      margin-bottom: 32px;
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+
+    .title .taco {
+      color: var(--white);
+    }
+
+    .title .tuesyay {
+      color: var(--dark-yellow);
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    /* Menu */
+    .menu-row {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .menu-box {
+      border: 2px solid var(--gold);
+      padding: 8px;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .menu-box:hover {
+      box-shadow: 0 0 18px rgba(212, 175, 55, 0.9);
+      transform: translateY(-4px);
+    }
+
+    .menu-row.small .menu-box img {
+      width: 160px;
+    }
+
+    .menu-row.large .menu-box img {
+      width: 200px;
+    }
+
+    /* Cutoff */
+    .cutoff {
+      text-align: center;
+      margin: 32px 0;
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    /* Main Grid */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    /* Gold Outline Box */
+    .outline-box {
+      border: 2px solid var(--gold);
+      padding: 20px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .outline-box:hover {
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+    }
+
+    /* Preorder */
+    .preorder h3 {
+      margin-top: 0;
+      margin-bottom: 4px;
+    }
+
+    .preorder p {
+      margin: 4px 0;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .fields p {
+      margin: 6px 0;
+      font-size: 0.85rem;
+    }
+
+    /* Right Column */
+    .right-column {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .socials {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .socials a {
+      font-size: 1.8rem;
+      text-decoration: none;
+    }
+
+    .socials .fa-tiktok { color: #ffffff; }
+    .socials .fa-whatsapp { color: #25D366; }
+    .socials .fa-facebook-messenger { color: #0084FF; }
+
+    .video-wrapper {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .video-wrapper video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      animation: slowFloat 6s ease-in-out infinite;
+    }
+
+    @keyframes slowFloat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .right-column {
+        height: auto;
+      }
+
+      .video-wrapper {
+        height: 240px;
+      }
+
+      .socials {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="Logo.png" alt="Logo">
+    </div>
+
+    <!-- Title -->
+    <div class="title">
+      <span class="taco">Taco</span>
+      <span class="tuesyay">Tuesyay!</span>
+      <span> Order now!</span>
+    </div>
+
+    <!-- Menu -->
+    <div class="menu-row small">
+      <div class="menu-box"><img src="men1.png" alt=""></div>
+      <div class="menu-box"><img src="men2.png" alt=""></div>
+      <div class="menu-box"><img src="men3.png" alt=""></div>
+    </div>
+
+    <div class="menu-row large">
+      <div class="menu-box"><img src="men4.png" alt=""></div>
+      <div class="menu-box"><img src="men5.png" alt=""></div>
+    </div>
+
+    <!-- Cutoff -->
+    <div class="cutoff">
+      Order Cutoff: Sunday 10 PM • Tuesday Delivery
+    </div>
+
+    <!-- Main -->
+    <div class="main-grid">
+      <!-- Left -->
+      <div class="outline-box preorder">
+        <h3>Taco Tuesday Pre-Order</h3>
+        <p>Pre-order only · Payment required</p>
+
+        <div class="fields">
+          <p><strong>Name:</strong> Full name</p>
+          <p><strong>Mobile:</strong> Contact number</p>
+          <p><strong>Order:</strong> Menu item + qty</p>
+          <p><strong>Pickup / Delivery</strong></p>
+          <p><strong>Address:</strong> if delivery</p>
+          <p><strong>Payment:</strong> Required upon order</p>
+          <p><strong>Proof:</strong> Screenshot of payment</p>
+        </div>
+
+        <p>Orders confirmed only after payment.</p>
+        <p>Final amount will be sent by us.</p>
+      </div>
+
+      <!-- Right -->
+      <div class="right-column">
+        <div class="socials">
+          <a href="https://www.tiktok.com/@sira.ulo.kitchen" target="_blank">
+            <i class="fa-brands fa-tiktok"></i>
+          </a>
+          <a href="https://www.tiktok.com/@sira.ulo.kitchen" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="https://www.tiktok.com/@sira.ulo.kitchen" target="_blank">
+            <i class="fa-brands fa-facebook-messenger"></i>
+          </a>
+        </div>
+
+        <div class="video-wrapper">
+          <video src="vid1.mp4" autoplay muted loop playsinline></video>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
