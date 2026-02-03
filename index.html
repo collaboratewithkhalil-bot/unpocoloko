@@ -1,281 +1,378 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Taco Tuesyay</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taco Tuesyay! | Sira Ulo Kitchen</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- General Reset & Background --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+        body {
+            background-color: #000000; /* Black Background */
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-  <style>
-    :root {
-      --gold: #d4af37;
-      --dark-yellow: #cfa300;
-      --black: #000;
-      --white: #fff;
-    }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-    * {
-      box-sizing: border-box;
-    }
+        /* --- Logo --- */
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-    body {
-      margin: 0;
-      background: var(--black);
-      color: var(--white);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    }
+        .logo-img {
+            max-width: 200px; /* Adjust based on your actual logo size */
+            height: auto;
+        }
 
-    img, video {
-      max-width: 100%;
-      display: block;
-    }
+        /* --- Animated Title --- */
+        .main-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            /* The Energetic Animation */
+            animation: pulse-jump 1.5s infinite ease-in-out;
+        }
 
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: auto;
-      padding: 24px;
-    }
+        .text-taco {
+            color: #ffffff; /* White */
+        }
 
-    /* Logo */
-    .logo {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 16px;
-    }
+        .text-tuesyay {
+            color: #FFC300; /* Dark Yellow/Gold */
+        }
 
-    .logo img {
-      width: 140px;
-    }
+        .order-now {
+            display: block;
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-top: 5px;
+            font-weight: normal;
+        }
 
-    /* Title */
-    .title {
-      text-align: center;
-      font-size: clamp(2.2rem, 5vw, 3.5rem);
-      font-weight: 800;
-      margin-bottom: 32px;
-      animation: pulse 2.5s ease-in-out infinite;
-    }
+        @keyframes pulse-jump {
+            0%, 100% { transform: scale(1) translateY(0); }
+            50% { transform: scale(1.05) translateY(-5px); }
+        }
 
-    .title .taco {
-      color: var(--white);
-    }
+        /* --- Menu Grid --- */
+        .menu-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
 
-    .title .tuesyay {
-      color: var(--dark-yellow);
-    }
+        .menu-row {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            width: 100%;
+            flex-wrap: wrap;
+        }
 
-    @keyframes pulse {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
+        .menu-item {
+            border: 3px solid #FFC300; /* Gold Box Border */
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #000;
+        }
 
-    /* Menu */
-    .menu-row {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
+        .menu-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
 
-    .menu-box {
-      border: 2px solid var(--gold);
-      padding: 8px;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-    }
+        /* Row 1 Sizes */
+        .row-1 .menu-item {
+            width: 150px;
+            height: 150px;
+        }
 
-    .menu-box:hover {
-      box-shadow: 0 0 18px rgba(212, 175, 55, 0.9);
-      transform: translateY(-4px);
-    }
+        /* Row 2 Sizes (Slightly Bigger) */
+        .row-2 .menu-item {
+            width: 200px;
+            height: 200px;
+        }
 
-    .menu-row.small .menu-box img {
-      width: 160px;
-    }
+        /* --- Info Bar --- */
+        .cutoff-info {
+            text-align: center;
+            font-size: 1.1rem;
+            border-top: 1px solid #FFC300;
+            border-bottom: 1px solid #FFC300;
+            padding: 15px;
+            margin: 0 auto 40px auto;
+            max-width: 800px;
+            color: #fff;
+        }
 
-    .menu-row.large .menu-box img {
-      width: 200px;
-    }
+        /* --- Split Layout (Pre-Order & Socials) --- */
+        .content-split {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Aligns top */
+            gap: 40px;
+            flex-wrap: wrap; /* Wraps on mobile */
+        }
 
-    /* Cutoff */
-    .cutoff {
-      text-align: center;
-      margin: 32px 0;
-      font-size: 1rem;
-      opacity: 0.9;
-    }
+        /* Left Column */
+        .left-column {
+            flex: 1;
+            max-width: 450px;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
 
-    /* Main Grid */
-    .main-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      align-items: stretch;
-    }
+        /* Right Column */
+        .right-column {
+            flex: 0 0 auto; /* Doesn't grow */
+            padding-top: 20px; /* Align visually with form title */
+        }
 
-    /* Gold Outline Box */
-    .outline-box {
-      border: 2px solid var(--gold);
-      padding: 20px;
-      transition: box-shadow 0.3s ease;
-    }
+        /* --- Pre-Order Box (Gold) --- */
+        .preorder-box {
+            background-color: #FFC300; /* Gold Background */
+            color: #000000; /* Black text for contrast */
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(255, 195, 0, 0.3);
+        }
 
-    .outline-box:hover {
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
-    }
+        .preorder-box h2 {
+            margin-bottom: 5px;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+        }
 
-    /* Preorder */
-    .preorder h3 {
-      margin-top: 0;
-      margin-bottom: 4px;
-    }
+        .subtitle {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            opacity: 0.8;
+        }
 
-    .preorder p {
-      margin: 4px 0;
-      font-size: 0.9rem;
-      opacity: 0.9;
-    }
+        .form-group {
+            margin-bottom: 15px;
+        }
 
-    .fields p {
-      margin: 6px 0;
-      font-size: 0.85rem;
-    }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
 
-    /* Right Column */
-    .right-column {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #000;
+            border-radius: 6px;
+            background: #fff;
+            font-size: 1rem;
+        }
 
-    .socials {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 12px;
-    }
+        .disclaimer {
+            font-size: 0.75rem;
+            margin-top: 15px;
+            text-align: center;
+            line-height: 1.3;
+        }
 
-    .socials a {
-      font-size: 1.8rem;
-      text-decoration: none;
-    }
+        /* --- Social Icons --- */
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
 
-    .socials .fa-tiktok { color: #ffffff; }
-    .socials .fa-whatsapp { color: #25D366; }
-    .socials .fa-facebook-messenger { color: #0084FF; }
+        .social-icon {
+            font-size: 3.5rem;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
 
-    .video-wrapper {
-      flex: 1;
-      overflow: hidden;
-    }
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
 
-    .video-wrapper video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      animation: slowFloat 6s ease-in-out infinite;
-    }
+        /* Original Brand Colors */
+        .fa-tiktok { color: #fff; text-shadow: 2px 2px 0px #FE2C55, -2px -2px 0px #25F4EE; } /* Custom Tiktok effect */
+        .fa-whatsapp { color: #25D366; }
+        .fa-facebook-messenger { color: #00B2FF; }
 
-    @keyframes slowFloat {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.03); }
-    }
+        /* --- Video Section --- */
+        .video-wrapper {
+            width: 100%;
+            border: 2px solid #FFC300;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #000;
+        }
 
-    /* Mobile */
-    @media (max-width: 768px) {
-      .main-grid {
-        grid-template-columns: 1fr;
-      }
+        video {
+            width: 100%;
+            display: block;
+        }
 
-      .right-column {
-        height: auto;
-      }
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .row-1 .menu-item { width: 100px; height: 100px; }
+            .row-2 .menu-item { width: 140px; height: 140px; }
+            
+            .content-split {
+                flex-direction: column;
+                align-items: center;
+            }
 
-      .video-wrapper {
-        height: 240px;
-      }
-
-      .socials {
-        justify-content: center;
-      }
-    }
-  </style>
+            .right-column {
+                order: -1; /* Puts social icons on top in mobile, or remove to keep at bottom */
+                /* If you want socials NEXT to form on mobile, change flex-direction above */
+                flex-direction: row;
+                display: flex;
+                gap: 30px;
+                padding-bottom: 20px;
+            }
+            
+            .social-links {
+                flex-direction: row;
+            }
+            
+            .left-column {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <div class="container">
-    <!-- Logo -->
-    <div class="logo">
-      <img src="Logo.png" alt="Logo">
-    </div>
 
-    <!-- Title -->
-    <div class="title">
-      <span class="taco">Taco</span>
-      <span class="tuesyay">Tuesyay!</span>
-      <span> Order now!</span>
-    </div>
-
-    <!-- Menu -->
-    <div class="menu-row small">
-      <div class="menu-box"><img src="men1.png" alt=""></div>
-      <div class="menu-box"><img src="men2.png" alt=""></div>
-      <div class="menu-box"><img src="men3.png" alt=""></div>
-    </div>
-
-    <div class="menu-row large">
-      <div class="menu-box"><img src="men4.png" alt=""></div>
-      <div class="menu-box"><img src="men5.png" alt=""></div>
-    </div>
-
-    <!-- Cutoff -->
-    <div class="cutoff">
-      Order Cutoff: Sunday 10 PM • Tuesday Delivery
-    </div>
-
-    <!-- Main -->
-    <div class="main-grid">
-      <!-- Left -->
-      <div class="outline-box preorder">
-        <h3>Taco Tuesday Pre-Order</h3>
-        <p>Pre-order only · Payment required</p>
-
-        <div class="fields">
-          <p><strong>Name:</strong> Full name</p>
-          <p><strong>Mobile:</strong> Contact number</p>
-          <p><strong>Order:</strong> Menu item + qty</p>
-          <p><strong>Pickup / Delivery</strong></p>
-          <p><strong>Address:</strong> if delivery</p>
-          <p><strong>Payment:</strong> Required upon order</p>
-          <p><strong>Proof:</strong> Screenshot of payment</p>
+    <div class="container">
+        
+        <div class="logo-container">
+            <img src="Logo.png" alt="Sira Ulo Kitchen Logo" class="logo-img">
         </div>
 
-        <p>Orders confirmed only after payment.</p>
-        <p>Final amount will be sent by us.</p>
-      </div>
+        <h1 class="main-title">
+            <span class="text-taco">Taco</span> <span class="text-tuesyay">Tuesyay!</span>
+            <span class="order-now">Order now!</span>
+        </h1>
 
-      <!-- Right -->
-      <div class="right-column">
-        <div class="socials">
-          <a href="https://www.tiktok.com/@sira.ulo.kitchen" target="_blank">
-            <i class="fa-brands fa-tiktok"></i>
-          </a>
-          <a href="https://www.tiktok.com/@sira.ulo.kitchen" target="_blank">
-            <i class="fa-brands fa-whatsapp"></i>
-          </a>
-          <a href="https://www.tiktok.com/@sira.ulo.kitchen" target="_blank">
-            <i class="fa-brands fa-facebook-messenger"></i>
-          </a>
+        <div class="menu-section">
+            <div class="menu-row row-1">
+                <div class="menu-item"><img src="men1.png" alt="Menu 1"></div>
+                <div class="menu-item"><img src="men2.png" alt="Menu 2"></div>
+                <div class="menu-item"><img src="men3.png" alt="Menu 3"></div>
+            </div>
+
+            <div class="menu-row row-2">
+                <div class="menu-item"><img src="men4.png" alt="Menu 4"></div>
+                <div class="menu-item"><img src="men5.png" alt="Menu 5"></div>
+            </div>
         </div>
 
-        <div class="video-wrapper">
-          <video src="vid1.mp4" autoplay muted loop playsinline></video>
+        <div class="cutoff-info">
+            <strong>Order Cutoff:</strong> Sunday 10 PM • Tuesday Delivery
         </div>
-      </div>
+
+        <div class="content-split">
+            
+            <div class="left-column">
+                
+                <div class="preorder-box">
+                    <h2>Taco Tuesday Pre-Order</h2>
+                    <p class="subtitle">Pre-order only · Payment required</p>
+
+                    <form>
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" class="form-control" placeholder="Full name">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Mobile</label>
+                            <input type="tel" class="form-control" placeholder="Contact number">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Order</label>
+                            <textarea class="form-control" rows="3" placeholder="Menu item + qty"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Pickup / Delivery</label>
+                            <input type="text" class="form-control" placeholder="Address if delivery">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Payment</label>
+                            <div style="font-size: 0.9rem;">Required upon order</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Proof</label>
+                            <input type="file" class="form-control" accept="image/*">
+                            <div style="font-size: 0.8rem; margin-top:5px;">Screenshot of payment</div>
+                        </div>
+
+                        <button type="button" style="width:100%; padding: 15px; background: #000; color: #FFC300; font-weight:bold; border:none; cursor:pointer; text-transform: uppercase;">Submit Order</button>
+
+                        <div class="disclaimer">
+                            Orders confirmed only after payment.<br>
+                            Final amount will be sent by us.
+                        </div>
+                    </form>
+                </div>
+
+                <div class="video-wrapper">
+                    <video controls playsinline>
+                        <source src="vid1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+            </div>
+
+            <div class="right-column">
+                <div class="social-links">
+                    <a href="https://www.tiktok.com/@sira.ulo.kitchen" target="_blank" class="social-icon">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    
+                    <a href="https://www.tiktok.com/@sira.ulo.kitchen" target="_blank" class="social-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    
+                    <a href="https://www.tiktok.com/@sira.ulo.kitchen" target="_blank" class="social-icon">
+                        <i class="fab fa-facebook-messenger"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
     </div>
-  </div>
+
 </body>
 </html>
