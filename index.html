@@ -3,7 +3,359 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Taco Tuesyay – Pre-Order</title>
+  <title>Taco Tuesyay – Pre-Order</title<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taco Tuesyay! | Pre-Order</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- 1. GLOBAL STYLE & RESET --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #000000; /* 100% BLACK */
+            color: #ffffff;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.4;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- COLORS --- */
+        :root {
+            --gold-accent: #FFD700; /* Gold Border Color */
+            --dark-yellow: #FFC300; /* Tuesyay Color */
+        }
+
+        /* --- 2. HEADER SECTION --- */
+        .header-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-img {
+            max-width: 150px; 
+            height: auto;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .brand-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            animation: bounce-pulse 2s infinite ease-in-out;
+        }
+
+        .text-taco { color: #ffffff; }
+        .text-tuesyay { color: var(--dark-yellow); }
+
+        @keyframes bounce-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02) translateY(-2px); }
+        }
+
+        /* --- 3. MENU GRID (Centered) --- */
+        .menu-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .menu-row {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* Gold Outline Images */
+        .menu-img-box {
+            border: 2px solid var(--gold-accent);
+            background-color: #000;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .menu-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Sizes */
+        .row-1 .menu-img-box { width: 140px; height: 140px; }
+        .row-2 .menu-img-box { width: 180px; height: 180px; }
+
+        /* --- 4. INFO LINE --- */
+        .info-line {
+            text-align: center;
+            font-size: 1rem;
+            color: #fff;
+            padding: 10px 0;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+            margin-bottom: 40px;
+        }
+
+        /* --- 5. MAIN CONTENT (GRID SYSTEM) --- */
+        .content-grid {
+            display: grid;
+            /* Two equal columns */
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            /* This ensures the row height is defined by the content (Left Box) */
+            align-items: stretch;
+        }
+
+        /* --- LEFT COLUMN: FORM --- */
+        .left-col {
+            /* Gold Border, Black Interior */
+            border: 2px solid var(--gold-accent);
+            border-radius: 10px;
+            padding: 25px;
+            background-color: #000; 
+            display: flex;
+            flex-direction: column;
+            /* This box defines the height */
+            height: 100%; 
+        }
+
+        .po-title {
+            color: var(--gold-accent);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .po-subtitle {
+            font-size: 0.85rem;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        /* Form Lines */
+        .po-item { margin-bottom: 15px; }
+        .po-label {
+            display: block;
+            color: var(--gold-accent);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+        }
+        .po-value {
+            display: block;
+            width: 100%;
+            border-bottom: 1px solid #444;
+            color: #fff;
+            font-size: 0.95rem;
+            padding-bottom: 3px;
+        }
+
+        .po-footer {
+            margin-top: auto; 
+            padding-top: 15px;
+            font-size: 0.75rem;
+            color: #888;
+            text-align: center;
+        }
+
+        /* --- RIGHT COLUMN: SOCIALS + VIDEO --- */
+        .right-col {
+            display: flex;
+            flex-direction: column;
+            /* Matches the height of the left column automatically via Grid */
+            height: 100%;
+        }
+
+        /* Socials */
+        .social-row {
+            display: flex;
+            gap: 20px;
+            padding-bottom: 20px;
+            /* Aligned Top-Left as requested */
+            justify-content: flex-start; 
+            align-items: center;
+        }
+
+        .social-icon {
+            font-size: 2.2rem;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+        .social-icon:hover { transform: scale(1.1); }
+
+        .fa-tiktok { color: #fff; text-shadow: 2px 2px 0px #FE2C55, -2px -2px 0px #25F4EE; }
+        .fa-whatsapp { color: #25D366; }
+        .fa-facebook-messenger { color: #00B2FF; }
+
+        /* Video Container - THE MAGIC FIX */
+        .video-container {
+            /* Fills remaining space */
+            flex: 1; 
+            position: relative; 
+            /* Gold border to match style */
+            border: 2px solid var(--gold-accent);
+            border-radius: 10px;
+            overflow: hidden;
+            background: #000;
+            /* Crucial: prevents video from pushing the height open */
+            min-height: 0; 
+        }
+
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Crops video to fit the box perfectly */
+        }
+
+        /* --- MOBILE BEHAVIOR --- */
+        @media (max-width: 768px) {
+            .content-grid {
+                /* Stack columns */
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .right-col {
+                /* On mobile, reset height so it stacks naturally */
+                height: auto;
+            }
+
+            .video-container {
+                /* On mobile, we need a fixed height because there is no Left Col to match */
+                height: 350px; 
+                flex: none; /* Disable the flex fill logic */
+                width: 100%;
+            }
+            
+            /* Center socials on mobile */
+            .social-row {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <header class="header-section">
+            <img src="logo.png" alt="Logo" class="logo-img">
+            
+            <div class="brand-title">
+                <span class="text-taco">Taco</span> <span class="text-tuesyay">Tuesyay!</span>
+            </div>
+            <div style="color:#ccc;">Order now!</div>
+        </header>
+
+        <section class="menu-section">
+            <div class="menu-row row-1">
+                <div class="menu-img-box"><img src="men1.jpeg" alt="Menu 1"></div>
+                <div class="menu-img-box"><img src="men2.jpeg" alt="Menu 2"></div>
+                <div class="menu-img-box"><img src="men3.jpeg" alt="Menu 3"></div>
+            </div>
+            <div class="menu-row row-2">
+                <div class="menu-img-box"><img src="men4.jpeg" alt="Menu 4"></div>
+                <div class="menu-img-box"><img src="men5.jpeg" alt="Menu 5"></div>
+            </div>
+        </section>
+
+        <div class="info-line">
+            Order Cutoff: Sunday 10 PM • Tuesday Delivery
+        </div>
+
+        <div class="content-grid">
+            
+            <div class="left-col">
+                <div class="po-title">Taco Tuesday Pre-Order</div>
+                <div class="po-subtitle">Pre-order only · Payment required</div>
+
+                <div class="po-item">
+                    <span class="po-label">Name</span>
+                    <span class="po-value">Full name</span>
+                </div>
+                
+                <div class="po-item">
+                    <span class="po-label">Mobile</span>
+                    <span class="po-value">Contact number</span>
+                </div>
+
+                <div class="po-item">
+                    <span class="po-label">Order</span>
+                    <span class="po-value">Menu item + qty</span>
+                </div>
+
+                <div class="po-item">
+                    <span class="po-label">Pickup / Delivery</span>
+                    <span class="po-value">Address if delivery</span>
+                </div>
+
+                <div class="po-item">
+                    <span class="po-label">Payment</span>
+                    <span class="po-value">Required upon order</span>
+                </div>
+
+                <div class="po-item">
+                    <span class="po-label">Proof</span>
+                    <span class="po-value">Screenshot of payment</span>
+                </div>
+
+                <div class="po-footer">
+                    Orders confirmed only after payment.<br>
+                    Final amount will be sent by us.
+                </div>
+            </div>
+
+            <div class="right-col">
+                
+                <div class="social-row">
+                    <a href="https://www.tiktok.com/@sira.ulo.kitchen" target="_blank" class="social-icon">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@sira.ulo.kitchen" target="_blank" class="social-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@sira.ulo.kitchen" target="_blank" class="social-icon">
+                        <i class="fab fa-facebook-messenger"></i>
+                    </a>
+                </div>
+
+                <div class="video-container">
+                    <video autoplay muted loop playsinline>
+                        <source src="vid1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
